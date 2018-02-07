@@ -40,6 +40,7 @@ public class Phrase1 {
                     readIO++;
                     //sort and writeback
                     sortW.sort(studentID,index,tupleNum);
+//                    sortW.sort(studentID,tupleNum);
                     outputFile = new File("src/PhraseOutput/outputEMPphase1-"+String.valueOf(writeIO)+".txt");
                     if (!outputFile.exists()) {
                     outputFile.createNewFile();
@@ -48,7 +49,7 @@ public class Phrase1 {
 
                 for (int i=0; i < tupleNum; i++){
 
-                    fw.write(String.valueOf(studentID[i])+content[i]+"\r");
+                    fw.write(String.valueOf(studentID[i])+content[index[i]]+"\r");
                     //change to i, before is index[i]
                 }
 
@@ -58,17 +59,20 @@ public class Phrase1 {
                 tupleNum=0;
                 }
             }
+            //sort and write back
+            //if the sublist is not full
             if (tupleNum > 0) {
                 readIO++;
                 //sort and writeback;
                 sortW.sort(studentID,index,tupleNum);
+//                sortW.sort(studentID,tupleNum);
                 outputFile = new File("src/PhraseOutput/outputEMPphase1-"+String.valueOf(writeIO)+".txt");
                 if (!outputFile.exists()) {
                     outputFile.createNewFile();
                 }
                 fw = new FileWriter(outputFile.getAbsoluteFile(),false);
                 for (int i=0;i<tupleNum;i++){
-                    fw.write(String.valueOf(studentID[i])+content[i]+"\r");
+                    fw.write(String.valueOf(studentID[i])+content[index[i]]+"\r");
                 }
                 fw.close();
                 tupleNumTotal+=tupleNum;

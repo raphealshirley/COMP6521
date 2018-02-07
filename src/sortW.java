@@ -3,6 +3,7 @@ public class sortW {
     private static int indexarray[];
 
     public static void sort(int[] inputArr, int[] index, int length) {
+//public static void sort(int[] inputArr, int length) {
         if (inputArr == null || inputArr.length == 0) {
             return;
         }
